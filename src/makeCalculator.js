@@ -13,36 +13,24 @@ function makeCalculator() {
     },
     add(val) {
       this.result += val;
-
-      return this;
     },
     subtract(val) {
       this.result -= val;
-
-      return this;
     },
     multiply(val) {
       this.result *= val;
-
-      return this;
     },
     divide(val) {
-      if (val === 0) {
-        return 'Cannot divide by zero.';
-      } else {
-        this.result /= val;
-      }
-
-      return this;
+      this.result /= val;
     },
     operate(operation, value) {
       if (typeof operation === 'function') {
         operation.call(this, value);
+
+        return this;
       } else {
         throw new Error(`${operation} is not a function`);
       }
-
-      return this;
     },
   };
 }
